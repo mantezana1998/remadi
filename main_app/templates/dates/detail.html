@@ -2,7 +2,46 @@
 
 {% block content %}
 
-<h1>Adventurous Dates</h1>
+
+
+{% for date in dates %}
+  <a href="{% url 'detail' date.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ date.name }}</span>
+            <p>Catrogry: {{ date.cateogry }}</p>
+            <p>Description: {{ date.description }}</p>
+            <p>Location: {{ date.location }}</p>
+            <p>Time: {{ date.time }}</p>
+            <p>Dates: {{ date.dates }}</p>
+            <p>Price: {{ date.price }}</p>
+        </div>
+    </div>
+  </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>Adventurous cats</h1>
 <ul class="collection">
     <li class="collection-item avatar">
       <img src="images/yuna.jpg" alt="" class="circle">
@@ -22,7 +61,9 @@
     </li>
     <li class="collection-item avatar">
       <i class="material-icons circle green">insert_chart</i>
-      <span class="title">Title</span>
+      <span class="title">
+        Title
+      </span>
       <p>First Line <br>
          Second Line
       </p>
@@ -37,6 +78,6 @@
       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </li>
   </ul>
-    
+     -->
 {% endblock %}
     
