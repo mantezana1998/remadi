@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .models import Date, Review
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
@@ -10,11 +11,13 @@ def about(request):
   return render(request, 'about.html')
 
 def dates_index(request):
-  return render(request, 'dates/index.html')
-  # return render(request, 'dates/index.html', {'dates': dates})
+  return render(request, 'dates/index.html', {'dates': dates})
 
 def dates_list(request):
   return render(request, 'dates/lists.html')
+
+def dates_detail(request):
+  return render(request, 'dates/detail.html' )
 
 def signup(request):
   error_message = ''
