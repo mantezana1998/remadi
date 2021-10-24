@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Date, Review
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+
 
 def home(request):
   return render(request, 'home.html')
@@ -10,12 +11,16 @@ def home(request):
 def about(request):
   return render(request, 'about.html')
 
+@login_required
 def dates_index(request):
+  dates = Date.objects.filter(user=request.user)
   return render(request, 'dates/index.html', {'dates': dates})
 
+@login_required
 def dates_list(request):
   return render(request, 'dates/lists.html')
 
+@login_required
 def dates_detail(request):
   return render(request, 'dates/detail.html' )
 
