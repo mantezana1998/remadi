@@ -14,6 +14,9 @@ main {
     background-color: white;
 }
 
+#card-content {
+    color: black;
+}
 footer.page-footer {
     padding-top: 0;
     text-align: right;
