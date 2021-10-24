@@ -17,7 +17,7 @@ def dates_index(request):
     # return render(request, 'dates/index.html', {'dates': dates})
 
 def dates_list(request):
-  return render(request, 'dates/list.html')
+  return render(request, 'dates/lists.html')
 
 def signup(request):
   error_message = ''
