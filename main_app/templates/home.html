@@ -12,9 +12,9 @@
 </div>
 
 {% if user.is_authenticated %}
-  <a href="dates/"><input type="submit" class="btn" value="Let's Choose!"></a>   
+  <a href="{% url 'index' %}"><input type="submit" class="btn" value="Let's Choose!"></a>   
 {% else %}
-  <a href="accounts/signup"><input type="submit" class="btn" value="Let's Choose!"></a>     
+  <a href="{% url 'signup' %}"><input type="submit" class="btn" value="Let's Choose!"></a>     
 {% endif %}
   
 <script>
