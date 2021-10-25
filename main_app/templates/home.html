@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>REMADi</h1>
-<p>The remedy to your date decisions woes</p>
 <div class="carousel">
-  <a class="carousel-item" href="#one!"><img src="https://i.imgur.com/qJofVZs.jpg"></a>
-  <a class="carousel-item" href="#two!"><img src="https://i.imgur.com/lCvbkpc.jpg"></a>
+  <a class="carousel-item" href="#one!"><img src="https://i.imgur.com/oO7YGo4.jpg"></a>
+  <a class="carousel-item" href="#two!"><img src="https://i.imgur.com/HRkyQvP.jpg"></a>
   <a class="carousel-item" href="#three!"><img src="https://i.imgur.com/7FCYIny.jpg"></a>
-  <a class="carousel-item" href="#four!"><img src="https://i.imgur.com/LihqM4v.jpg"></a>
+  <a class="carousel-item" href="#four!"><img src="https://i.imgur.com/dXJP9cH.jpg"></a>
   <a class="carousel-item" href="#five!"><img src="https://i.imgur.com/l7TjoIH.jpg"></a>
 </div>
+<h5>The remedy to your date decision woes.</h5>
 {% if user.is_authenticated %}
-  <a href="{% url 'index' %}"><input type="submit" class="btn" value="Let's Choose!"></a>   
+  <a href="{% url 'index' %}"><input type="submit" class="btn" value="Let's Choose A Date!"></a>   
 {% else %}
-<a href="{% url 'signup' %}"><input type="submit" class="btn" value="Let's Choose!"></a>
+<a href="{% url 'signup' %}"><input type="submit" class="btn" value="Let's Choose A Date!"></a>
 {% endif %}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
