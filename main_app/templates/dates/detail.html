@@ -3,13 +3,11 @@
 {% block content %}
 
 
-
-{% for date in dates %}
   <a href="{% url 'detail' date.id %}">
     <div class="card">
         <div class="card-content">
             <span class="card-title">{{ date.name }}</span>
-            <p>Catrogry: {{ date.cateogry }}</p>
+            <p>Category: {{ date.category }}</p>
             <p>Description: {{ date.description }}</p>
             <p>Location: {{ date.location }}</p>
             <p>Time: {{ date.time }}</p>
@@ -20,7 +18,7 @@
   </a>
 
 
-
+{% endblock %}
 
 
 
@@ -79,5 +77,5 @@
     </li>
   </ul>
      -->
-{% endblock %}
+
     
