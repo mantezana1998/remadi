@@ -3,6 +3,7 @@ from .models import Date, Review
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+# from .forms import ReviewForm # complete form for the review
 
 
 def home(request):
@@ -21,8 +22,11 @@ def dates_list(request):
   return render(request, 'dates/lists.html')
 
 @login_required
-def dates_detail(request):
-  return render(request, 'dates/detail.html' )
+def dates_detail(request, date_id):
+  date = Date.objects.get(id=date_id)
+  return render(request, 'dates/detail.html', {
+    'date': date
+  })
 
 def signup(request):
   error_message = ''
