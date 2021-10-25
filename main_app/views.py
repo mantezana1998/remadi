@@ -26,7 +26,7 @@ def dates_detail(request, date_id):
   date = Date.objects.get(id=date_id)
   return render(request, 'dates/detail.html', {
     'date': date
-  })
+  })  
 
 def signup(request):
   error_message = ''
