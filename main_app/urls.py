@@ -7,5 +7,6 @@ urlpatterns = [
       path('dates/', views.dates_index, name='index'),
       path('lists/', views.dates_list, name='lists'),
       path('accounts/signup/', views.signup, name='signup'),
+      path('dates/', views.dates_detail, name='detail'),
       path('dates/<int:date_id>/', views.dates_detail, name='detail'),
 ]
