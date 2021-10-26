@@ -9,5 +9,4 @@ urlpatterns = [
       path('accounts/signup/', views.signup, name='signup'),
       path('dates/', views.dates_detail, name='detail'),
       path('dates/<int:date_id>/', views.dates_detail, name='detail'),
-      path('dates/<int:date_id>', views.add_to_my_dates, name='my_dates'),
 ]
