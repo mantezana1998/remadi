@@ -3,9 +3,8 @@ from .models import Date, Review
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .forms import AddDate
-# from .forms import ReviewForm # complete form for the review
-
+from django.views.generic.edit import CreateView
+from .forms import DateForm
 
 def home(request):
   return render(request, 'home.html')
@@ -18,9 +17,8 @@ def dates_index(request):
   dates = Date.objects.filter(user=request.user)
   return render(request, 'dates/index.html', {'dates': dates})
 
-@login_required
-def my_dates_list(request):
-      return render(request, 'dates/my_dates.html') 
+def my_dates(request):
+  return render (request, 'dates/my_dates.html')
 
 @login_required
 def dates_detail(request, date_id):
@@ -28,6 +26,18 @@ def dates_detail(request, date_id):
   return render(request, 'dates/detail.html', {
     'date': date
   })  
+
+def add_date(request, date_id):
+  form = DateForm(request.POST)
+  if form.is_valid():
+    new_date = form.save(commit=False)
+    new_date.date_id = date_id
+    new_date.save()
+  return redirect('my_dates', date_id=date_id)
+
+class DateCreate(CreateView):
+  model = Date
+  fields = '__all__'
 
 def signup(request):
   error_message = ''
