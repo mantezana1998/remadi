@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
 from .forms import DateForm
 
-
 def home(request):
   return render(request, 'home.html')
 
@@ -20,14 +19,6 @@ def dates_index(request):
 
 def my_dates(request):
   return render (request, 'dates/my_dates.html')
-
-# @login_required
-# def add_to_my_dates(request, date_id):
-#   date = Date.objects.get(id=date_id)
-#   add_date = AddDate()
-#   return render(request, 'dates/my_dates.html', {
-#     'date': date, 'add_date': add_date
-#   })
 
 @login_required
 def dates_detail(request, date_id):

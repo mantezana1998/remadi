@@ -9,5 +9,5 @@ urlpatterns = [
       path('accounts/signup/', views.signup, name='signup'),
       path('dates/', views.dates_detail, name='detail'),
       path('dates/<int:date_id>/', views.dates_detail, name='detail'),
-      path('dates/<int:date_id>/add_date/', views.add_date, name='add_date')
+      path('dates/<int:date_id>/my_dates/', views.add_date, name='add_date'),
 ]
