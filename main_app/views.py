@@ -19,7 +19,7 @@ def dates_index(request):
   return render(request, 'dates/index.html', {'dates': dates})
 
 @login_required
-def dates_list(request, date_id):
+def dates_my_dates(request):
   return render(request, 'dates/my_dates.html') 
   # date = Date.objects.get(id=date_id)
   # add_date = AddDate()

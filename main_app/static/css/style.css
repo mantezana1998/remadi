@@ -23,14 +23,24 @@ main {
 }
 
 .carousel .carousel-item {
-width:300px !important;}
+    width:300px !important;
+}
 
 #id_username, #id_password1, #id_password2 {
     background-color: white;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
 .card-content {
     color: black;
+}
+
+.card-title {
+    font-size: 50px !important;
 }
 
 footer.page-footer {
