@@ -19,13 +19,8 @@ def dates_index(request):
   return render(request, 'dates/index.html', {'dates': dates})
 
 @login_required
-def dates_my_dates(request):
+def my_dates_list(request):
   return render(request, 'dates/my_dates.html') 
-  # date = Date.objects.get(id=date_id)
-  # add_date = AddDate()
-  # return render(request, 'dates/my_dates.html', {
-  #   'date': date, 'add_date': add_date
-  # })
 
 @login_required
 def dates_detail(request, date_id):
@@ -33,10 +28,6 @@ def dates_detail(request, date_id):
   return render(request, 'dates/detail.html', {
     'date': date
   })  
-
-# def add_to_my_dates(request, date_id):
-#   form = AddingForm(request.POST)
-
 
 def signup(request):
   error_message = ''
