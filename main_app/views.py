@@ -3,6 +3,7 @@ from .models import Date
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from .apiaction import ticket_master_events
 
 def home(request):
   return render(request, 'home.html')
@@ -19,14 +20,17 @@ def my_dates(request):
   return render (request, 'dates/my_dates.html')
 
 def dates_lists(request):
-  return render(request, 'dates/dates_list.html')
+  events = ticket_master_events()
+  print(events)
+  return render(request, 'dates/dates_list.html', events)
+
 
 @login_required
 def dates_detail(request, date_id):
   date = Date.objects.get(id=date_id)
-  print(request, '<-this is my request')
-  print(date_id, '<- this is my date')
-  print('_embedded', 'events', '<- THIS IS OUR EVENTS')
+  # print(request, '<-this is my request')
+  # print(date_id, '<- this is my date')
+  # print('_embedded', 'events', '<- THIS IS OUR EVENTS')
   return render(request, 'dates/detail.html', {
     'date': date
     ['_embedded']['events']
