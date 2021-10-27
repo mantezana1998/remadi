@@ -16,12 +16,16 @@
 </head>
 <body>
   <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
+    <nav class="nav-wrapper">
+      <div class="container">
+        
         <ul>
           <li><a href="/" class="left brand-logo">REMADi</a></li>
+          <a href="/" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+          </a>  
         </ul>
-        <ul class="right">
+        <ul class="right hide-on-med-and-down">
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
@@ -36,6 +40,18 @@
         </ul>
       </div>
     </nav>
+    <ul class="sidenav" id="mobile-links">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'index' %}">Categories</a></li>
+      <li><a href="{% url 'my_dates' %}">My Dates</a></li>
+      <li><a href="{% url 'logout' %}">Log Out</a></li>
+    {% else %}
+      <li><a href="{% url 'signup' %}">Sign Up</a></li>
+      <li><a href="{% url 'login' %}">Log In</a></li>
+    {% endif %}
+    </ul>
   </header>
   <main class="container">
     {% block content %}
