@@ -4,7 +4,7 @@ body{
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    font-family: helvetica;
+    font-family: 'Comfortaa', cursive;
 }
 
 nav {
