@@ -9,9 +9,11 @@ urlpatterns = [
       path('categories/', views.categories_dates_index, name='index'),
       # can not run the same function at different urls 'dates_detail'
       # rename the function from dates_detail to date_list 
-      path('categories/dates/', views.dates_detail, name='detail'),
       # catrgory/dates will display a list of dates query from the api 
       # For when our API is set, uncomment this ^^^
       # This path will display a details page for a individual date
-      path('categories/dates/<int:date_id>/', views.dates_detail, name='detail'),
+      path('categories/dates/', views.dates_lists, name='lists'),
+      path('categories/dates/<int:date_id>', views.dates_detail, name='detail'),
+      path('categories/dates/<int:date_id>/my_dates', views.assoc_dates, name='assoc_dates'),
+
 ]

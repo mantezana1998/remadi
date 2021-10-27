@@ -12,11 +12,14 @@ def about(request):
 
 @login_required
 def categories_dates_index(request):
-  dates = Date.objects.filter(user=request.user)
-  return render(request, 'dates/index.html', {'dates': dates})
+  # dates = Date.objects.filter(user=request.user)
+  return render(request, 'dates/index.html')
 
 def my_dates(request):
   return render (request, 'dates/my_dates.html')
+
+def dates_lists(request):
+  return render(request, 'dates/dates_list.html')
 
 @login_required
 def dates_detail(request, date_id):
@@ -28,6 +31,9 @@ def dates_detail(request, date_id):
     'date': date
     ['_embedded']['events']
   })  
+
+def assoc_dates(request, User, date_id):
+  Date.objects.get(id=date_id).User.add(date_id)
 
 def signup(request):
   error_message = ''

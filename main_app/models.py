@@ -15,6 +15,10 @@ class Date(models.Model):
     #     choices=CATEGORIES,
     #     default=CATEGORIES[0][0]
     # )
-
+    
     def get_absolute_url(self):
         return reverse('detail', kwargs={'date_id': self.id})
+
+class MyDates(models.Model):
+    date_id = models.ForeignKey(Date, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
