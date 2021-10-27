@@ -4,8 +4,7 @@
   <h1>My Dates</h1>
   <ul class="collection">
     <li class="collection-item avatar">
-      <h2 style='color:black;'>Date Ideas</h2> 
-      <!-- @ DiAnne!!! Change this ^^ and add to CSS. Didn't want to touch your CSS in case you were working on it :-) -->
+      <h4 class="date-list">Date Ideas</h4> 
       {% if date.my_lists.count %}
       {% for date in date.my_lists.all %}
       <img src="https://i.imgur.com/RSo6X7w.jpg" alt="" class="circle">
@@ -13,11 +12,11 @@
       <table>
         <thead>
           <tr>
-              <th>Name</th>
-              <th>Location</th>
-              <th>Time</th>
-              <th>Dates</th>
-              <th>Price</th>
+              <th>Name: {{myList.name}}</th>
+              <th>Location: {{myList.location}}</th>
+              <th>Time: {{myList.time}}</th>
+              <th>Dates: {{myList.dates}}</th>
+              <th>Price: {{myList.price}}</th>
           </tr>
         </tbody>
       </table>
@@ -26,8 +25,8 @@
       {% endfor %}
       {% else %}
       <br>  
-      <h2 style='color:black;'>No Dates Added Yet!</h2>
-      <!-- @ DiAnne!!! Change this ^^ and add to CSS. Didn't want to touch your CSS in case you were working on it :-) -->
+      <h4 class="date-list">No Dates Added Yet!</h4>
+    
       {% endif %}
     </li>
 <!-- Add for loop to list out all the dates!!!! -->
