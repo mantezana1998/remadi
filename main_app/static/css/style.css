@@ -35,17 +35,27 @@ main {
     flex-direction: row;
 }
 
+.card-image {
+    transition: opacity .3s linear !important;
+
+}
+
 .card-content {
     color: black;
 }
 
 .card-title {
-    font-size: 50px !important;
+    font-size: 35px !important;
 }
 
 .date-list {
     color: black;
 }
+
+.cat-link {
+    color: #0d47a1 !important;
+}
+
 footer.page-footer {
     padding-top: 0;
     text-align: right;
