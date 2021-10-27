@@ -16,8 +16,5 @@ class Date(models.Model):
     #     default=CATEGORIES[0][0]
     # )
 
-    def __str__(self):
-        return self.name
-
     def get_absolute_url(self):
         return reverse('detail', kwargs={'date_id': self.id})
