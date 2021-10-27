@@ -24,8 +24,12 @@ def dates_lists(request):
 @login_required
 def dates_detail(request, date_id):
   date = Date.objects.get(id=date_id)
+  print(request, '<-this is my request')
+  print(date_id, '<- this is my date')
+  print('_embedded', 'events', '<- THIS IS OUR EVENTS')
   return render(request, 'dates/detail.html', {
     'date': date
+    ['_embedded']['events']
   })  
 
 def assoc_dates(request, User, date_id):
