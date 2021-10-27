@@ -9,6 +9,20 @@ CATEGORIES = (
     ('AV', 'Adventurous Dates')
 )
 
+class MyList(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=3000)
+    location = models.CharField(max_length=250)
+    time = models.TimeField('Time of Event')
+    dates = models.DateField('Date of Event')
+    price = models.DecimalField(max_digits=400, decimal_places=2)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('my_dates', kwargs={'pk': self.id})
+
 class Date(models.Model):
     name = models.CharField(max_length=250)
     description = models.CharField(max_length=3000)
@@ -16,6 +30,7 @@ class Date(models.Model):
     time = models.TimeField('Time of Event')
     dates = models.DateField('Date of Event')
     price = models.DecimalField(max_digits=400, decimal_places=2)
+    my_list = models.ManyToManyField(MyList)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(
         max_length=2,
