@@ -18,6 +18,9 @@ def categories_dates_index(request):
 def my_dates(request):
   return render (request, 'dates/my_dates.html')
 
+def dates_lists(request):
+  return render(request, 'dates/dates_list.html')
+
 @login_required
 def dates_detail(request, date_id):
   date = Date.objects.get(id=date_id)
