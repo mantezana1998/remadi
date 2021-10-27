@@ -12,8 +12,8 @@ def about(request):
 
 @login_required
 def categories_dates_index(request):
-  dates = Date.objects.filter(user=request.user)
-  return render(request, 'dates/index.html', {'dates': dates})
+  # dates = Date.objects.filter(user=request.user)
+  return render(request, 'dates/index.html')
 
 def my_dates(request):
   return render (request, 'dates/my_dates.html')
@@ -24,6 +24,9 @@ def dates_detail(request, date_id):
   return render(request, 'dates/detail.html', {
     'date': date
   })  
+
+def assoc_dates(request, User, date_id):
+  Date.objects.get(id=date_id).User.add(date_id)
 
 def signup(request):
   error_message = ''
