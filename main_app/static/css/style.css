@@ -36,16 +36,18 @@ main {
 }
 
 .card-image {
-    transition: opacity .3s linear !important;
+    background:#161616; opacity:0.9; 
+    font-style: bold;
 
 }
 
 .card-content {
-    color: black;
+    color: black !important;
 }
 
 .card-title {
     font-size: 35px !important;
+    color: white !important;
 }
 
 .date-list {
