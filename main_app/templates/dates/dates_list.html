@@ -2,17 +2,46 @@
 
 {% block content  %}
 <h1>Category Date</h1>
+  {% for event in events %}
+    {{event.name}} 
+    <form action="{% url 'my_dates' %}" method="post">
+  {% csrf_token %}
+    <table class="bordered">
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Time</th>
+          <th>Dates</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{event.location}}</td>
+          <td>{{event.time}}</td>
+          <td>{{event.dates}}</td>
+          <td>{{event.price}}</td>
+          <td><a href=""><input type="submit" class="btn-small waves-effect waves-light blue" value="Add To My Dates List"></a></td>
+        </tr>
+      </tbody>
+      </table>
+  {% endfor %}
+
   <div class="collection">
     <div class="collection-item avatar">
       {% for event in events %}
 			{{event.name}} 
       <!-- <img src="https://i.imgur.com/RSo6X7w.jpg" alt="" class="circle"> -->
       <span class="title"></span>
-              <!-- <p>Location: {{event.location}}</p> -->
+              <p>Location: {{event.location}}</p>
               <p>Time: {{event.time}}</p>
-              <!-- <p>Dates: {{event.dates}}</p> -->
+              <p>Dates: {{event.dates}}</p>
               <!-- <p>Price: {{event.price}}</p>    -->
+<<<<<<< HEAD
               <form action="{% url 'my_dates'? id=event.ticket_master %}" method="post">
+=======
+              <form action="{% url 'my_dates' %}?id={{event.ticket_master_id}}" method="post">
+>>>>>>> 6f746b41f03937e8429bda3498c7591c531d2075
                 {% csrf_token %}
                 <input type="submit" class="btn-small waves-effect waves-light blue" value="Add To My Dates List">
               </form>       

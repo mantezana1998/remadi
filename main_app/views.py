@@ -4,7 +4,7 @@ from .models import Date, MyDates
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .apiaction import ticket_master_events
+from .apiaction import ticket_master_events, single_event
 
 def home(request):
   return render(request, 'home.html')
@@ -17,7 +17,20 @@ def categories_dates_index(request):
   return render(request, 'dates/index.html')
 
 def my_dates(request):
-  return render (request, 'dates/my_dates.html')
+  ticketmaster_id = request.build_absolute_uri().split('=')[-1]
+  event = single_event(ticketmaster_id)
+  user = User.objects.get(username=request.user)
+  print(event, '<------event')
+  name = event['name']
+  location = event['location']
+  time = event['time']
+  dates = event['dates']
+  Date.objects.create(name=name, location=location, time=time, dates=dates, user_id=user.id)
+  all_dates = Date.objects.filter(user=user)
+  print(all_dates, '<------all dates!')
+  return render(request, 'dates/my_dates.html', {
+    'all_dates': all_dates
+  })
 
 def dates_lists(request):
   events = (ticket_master_events())

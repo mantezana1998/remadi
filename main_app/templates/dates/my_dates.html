@@ -3,20 +3,21 @@
 {% block content %}
   <h1>My Dates</h1>
   <div class="collection">
-    <div class="collection-item avatar">
+    <!-- <div class="collection-item avatar"> -->
       <h4 class="date-list">Date Ideas</h4> 
-      {% if date.count %}
-      {% for date in dates.all %}
+      {% if all_dates.count %}
+      {% for alldates in all_dates.all %}
       <img src="https://i.imgur.com/RSo6X7w.jpg" alt="" class="circle">
       <span class="title">Date</span>
-        <p>Location: {{date.location}}</p>
-        <p>Time: {{date.time}}</p>
-        <p>Dates: {{date.dates}}</p>
-        <p>Price: {{date.price}}</p>  
+        <p>Location: {{alldates.location}}</p>
+        <p>Time: {{alldates.time}}</p>
+        <p>Dates: {{alldate.dates}}</p>
+        <p>Price: {{alldates.price}}</p>  
       {% endfor %}
       {% else %}
       <br>  
       <h4 class="date-list">No Dates Added Yet!</h4>
       {% endif %}
 <!-- Add for loop to list out all the dates!!!! -->
+</div>
 {% endblock %}
