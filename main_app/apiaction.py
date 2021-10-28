@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import pprint
 load_dotenv()
 
-
 def ticket_master_events():
     try:
         def grab_what_we_need(event):
