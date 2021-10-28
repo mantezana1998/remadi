@@ -38,7 +38,7 @@ def dates_detail(request, date_id):
 
 @login_required
 def assoc_dates(request, user_id, date_id):
-  User.objects.get(id=user_id).mydates.add(date_id)
+  User.objects.get(id=user_id)
   return redirect('assoc_dates', user_id=user_id)
 
 def signup(request):
