@@ -22,7 +22,7 @@ def my_dates(request):
 def dates_lists(request):
   events = (ticket_master_events())
   print(events)
-  return render(request, 'dates/dates_list.html', {'events'})
+  return render(request, 'dates/dates_list.html', {'events': events})
 
 
 @login_required
