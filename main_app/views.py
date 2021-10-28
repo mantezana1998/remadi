@@ -4,7 +4,6 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .apiaction import ticket_master_events
-from django.template.loader import render_to_string
 
 def home(request):
   return render(request, 'home.html')
@@ -21,9 +20,9 @@ def my_dates(request):
   return render (request, 'dates/my_dates.html')
 
 def dates_lists(request):
-  events = ticket_master_events()
+  events = (ticket_master_events())
   print(events)
-  return render(request, 'dates/dates_list.html', {events})
+  return render(request, 'dates/dates_list.html', {'events'})
 
 
 @login_required
