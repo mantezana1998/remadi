@@ -2,21 +2,32 @@
 
 {% block content  %}
 <h1>Category Date</h1>
-  <div class="collection">
-    <div class="collection-item avatar">
+
       {% for event in events %}
 			{{event.name}} 
-      <!-- <img src="https://i.imgur.com/RSo6X7w.jpg" alt="" class="circle"> -->
-      <span class="title"></span>
-              <!-- <p>Location: {{event.location}}</p> -->
-              <p>Time: {{event.time}}</p>
-              <!-- <p>Dates: {{event.dates}}</p> -->
-              <!-- <p>Price: {{event.price}}</p>    -->
+ 
               <form action="{% url 'my_dates' %}" method="post">
                 {% csrf_token %}
-                <a href=""><input type="submit" class="btn-small waves-effect waves-light blue" value="Add To My Dates List"></a>
-              </form>       
-		</div>
-      {% endfor %}
-	</div>
+
+<table class="bordered">
+  <thead>
+    <tr>
+        <th>Location</th>
+        <th>Time</th>
+        <th>Dates</th>
+        <th>Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>{{event.location}}</td>
+      <td>{{event.time}}</td>
+      <td>{{event.dates}}</td>
+      <td>{{event.price}}</td>
+      <td><a href=""><input type="submit" class="btn-small waves-effect waves-light blue" value="Add To My Dates List"></a></td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
 {% endblock  %}

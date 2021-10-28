@@ -6,8 +6,10 @@ body{
     flex-direction: column;
     font-family: 'Comfortaa', cursive;
 }
-.collection {
-    color: black !important;
+.section {
+    display: grid;
+    background-color: black !important;
+    color: white !important;
 }
 
 nav {
@@ -52,7 +54,7 @@ main {
 }
 
 .date-list {
-    color: black;
+    color: white;
 }
 
 .cat-link {
@@ -60,7 +62,12 @@ main {
 }
 
 hr {
-    background-color: whitesmoke;
+    background-color: whitesmoke !important;;
+}
+
+table {
+    border: 1px white;
+    padding: 0;
 }
 
 footer.page-footer {
