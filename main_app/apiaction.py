@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import pprint
 load_dotenv()
 
-
 def ticket_master_events():
     try:
         def grab_what_we_need(event):
@@ -15,7 +14,6 @@ def ticket_master_events():
             'time': event['dates']['start']['localTime'],
             'dates': event['dates']['start']['localDate'],
             'price': event['priceRanges'],
-          
             }
         apikey = os.getenv("TICKET_MASTER")
         response = requests.get(f'https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey={apikey}')
