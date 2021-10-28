@@ -36,7 +36,7 @@ def dates_detail(request, date_id):
   })  
 
 def assoc_dates(request, user_id, date_id):
-  MyDates.objects.get(id=user_id).dates.add(user_id)
+  MyDates.objects.get(id=user_id).dates.add(date_id)
   return redirect('assoc_dates', user_id=user_id)
 
 def signup(request):

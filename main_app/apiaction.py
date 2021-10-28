@@ -9,11 +9,10 @@ def ticket_master_events():
             return {
             'ticket_master_id': event['id*'],
             'name': event['name'],
-
             'location': event['_embedded']['venues'][0]['name'],
             'time': event['dates']['start']['localTime'],
             'dates': event['dates']['start']['localDate'],
-            'price': event['priceRanges'],
+            'price': event['priceRanges'],        
             }
         apikey = os.getenv("TICKET_MASTER")
         response = requests.get(f'https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey={apikey}')
