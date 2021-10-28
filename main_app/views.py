@@ -19,9 +19,18 @@ def categories_dates_index(request):
 def my_dates(request):
   ticketmaster_id = request.build_absolute_uri().split('=')[-1]
   event = single_event(ticketmaster_id)
+  user = User.objects.get(username=request.user)
   print(event, '<------event')
-  Date.objects.create(event)
-  return render (request, 'dates/my_dates.html')
+  name = event['name']
+  location = event['location']
+  time = event['time']
+  dates = event['dates']
+  Date.objects.create(name=name, location=location, time=time, dates=dates, user_id=user.id)
+  all_dates = Date.objects.filter(user=user)
+  print(all_dates, '<------all dates!')
+  return render(request, 'dates/my_dates.html', {
+    'all_dates': all_dates
+  })
 
 def dates_lists(request):
   events = (ticket_master_events())
