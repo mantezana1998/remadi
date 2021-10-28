@@ -21,6 +21,7 @@ def ticket_master_events():
     try:
         def grab_what_we_need(event):
             return {
+              
             'ticket_master_id': event['id'],
             'name': event['name'],
             'location': event['_embedded']['venues'][0]['name'],
@@ -28,6 +29,7 @@ def ticket_master_events():
             'dates': event['dates']['start']['localDate'],
             # 'price': event['priceRanges'],        
             }
+        apikey = os.getenv("TICKET_MASTER")
         response = requests.get(f'https://app.ticketmaster.com/discovery/v2/events.json?size=10&apikey={apikey}')
         event = response.json()
         # print(event,'<------------------------------------------------------------Events')

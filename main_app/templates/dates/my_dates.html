@@ -3,7 +3,7 @@
 {% block content %}
   <h1>My Dates</h1>
   <div class="collection">
-    <div class="collection-item avatar">
+    <!-- <div class="collection-item avatar"> -->
       <h4 class="date-list">Date Ideas</h4> 
       {% if event.count %}
       {% for event in events.all %}
@@ -19,4 +19,5 @@
       <h4 class="date-list">No Dates Added Yet!</h4>
       {% endif %}
 <!-- Add for loop to list out all the dates!!!! -->
+</div>
 {% endblock %}
