@@ -120,7 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/dates/'
+LOGIN_REDIRECT_URL = '/categories/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Default primary key field type
