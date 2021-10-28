@@ -14,6 +14,7 @@ def ticket_master_events():
         apikey = os.getenv("TICKET_MASTER")
         response = requests.get(f'https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey={apikey}')
         event = response.json()
+        print(event, '<---------------')
         if event == None:
             raise Exception('couldnt catch')
         results = event['_embedded']['events']
