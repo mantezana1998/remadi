@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Date
+from .models import Date, MyDates
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -22,7 +22,8 @@ def my_dates(request):
 def dates_lists(request):
   events = (ticket_master_events())
   print(events)
-  return render(request, 'dates/dates_list.html', {'events': events})
+  return render(request, 'dates/dates_list.html', {'events' : events})
+
 
 
 @login_required
@@ -36,8 +37,9 @@ def dates_detail(request, date_id):
     ['_embedded']['events']
   })  
 
-def assoc_dates(request, User, date_id):
-  Date.objects.get(id=date_id).User.add(date_id)
+def assoc_dates(request, user_id, date_id):
+  MyDates.objects.get(id=user_id).dates.add(user_id)
+  return redirect('assoc_dates', user_id=user_id)
 
 def signup(request):
   error_message = ''
