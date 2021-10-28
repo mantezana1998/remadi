@@ -22,3 +22,6 @@ class Date(models.Model):
 class MyDates(models.Model):
     date_id = models.ForeignKey(Date, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+    # 'ticketmaster id' : ['id']
