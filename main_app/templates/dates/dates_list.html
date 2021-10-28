@@ -1,32 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content  %}
-<h1>My Dates</h1>
+<h1>Category Date</h1>
   <ul class="collection">
     <li class="collection-item avatar">
       <h4 class="date-list">Date Ideas</h4> 
-      {% if date.my_lists.count %}
-      {% for date in date.my_lists.all %}
+      {% if events.count %}
+      {% for event in events.all %}
       <img src="https://i.imgur.com/RSo6X7w.jpg" alt="" class="circle">
       <span class="title">Date</span>
-      <table>
-        <thead>
-          <tr>
-              <th>Name: {{myList.name}}</th>
-              <th>Location: {{myList.location}}</th>
-              <th>Time: {{myList.time}}</th>
-              <th>Dates: {{myList.dates}}</th>
-              <th>Price: {{myList.price}}</th>
-          </tr>
-        </tbody>
-      </table>
-            
+              <p>Name: {{event.name}}</p>
+              <p>Location: {{event.location}}</p>
+              <p>Time: {{event.time}}</p>
+              <p>Dates: {{event.dates}}</p>
+              <p>Price: {{event.price}}</p>          
       <a href="#!" class="secondary-content"><i class="material-icons">$</a>
       {% endfor %}
       {% else %}
       <br>  
       <h4 class="date-list">No Dates Added Yet!</h4>
-    
       {% endif %}
 {% endblock  %}
     
