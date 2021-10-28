@@ -12,12 +12,12 @@ def ticket_master_events():
             'location': event['_embedded']['venues'][0]['name'],
             'time': event['dates']['start']['localTime'],
             'dates': event['dates']['start']['localDate'],
-            'price': event['priceRanges'],        
+            # 'price': float(event['priceRanges']),        
             }
         apikey = os.getenv("TICKET_MASTER")
         response = requests.get(f'https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey={apikey}')
         event = response.json()
-        print(event,'<------------------------------------------------------------Events')
+        # print(event,'<------------------------------------------------------------Events')
         if event == None:
             raise Exception('couldnt catch')
         results = event['_embedded']['events']

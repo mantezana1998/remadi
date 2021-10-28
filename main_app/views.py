@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from .models import Date, MyDates
 from django.contrib.auth import login
@@ -13,7 +14,6 @@ def about(request):
 
 @login_required
 def categories_dates_index(request):
-  # dates = Date.objects.filter(user=request.user)
   return render(request, 'dates/index.html')
 
 def my_dates(request):
@@ -21,7 +21,8 @@ def my_dates(request):
 
 def dates_lists(request):
   events = (ticket_master_events())
-  print(events)
+  dates = Date.objects.filter(user=request.user)
+  print(request.user)
   return render(request, 'dates/dates_list.html', {'events' : events})
 
 @login_required
@@ -35,8 +36,9 @@ def dates_detail(request, date_id):
     ['_embedded']['events']
   })  
 
+@login_required
 def assoc_dates(request, user_id, date_id):
-  MyDates.objects.get(id=user_id).dates.add(date_id)
+  User.objects.get(id=user_id).mydates.add(date_id)
   return redirect('assoc_dates', user_id=user_id)
 
 def signup(request):
