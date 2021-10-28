@@ -7,7 +7,7 @@ def ticket_master_events():
     try:
         def grab_what_we_need(event):
             return {
-            'ticket_master_id': event['id*'],
+            # 'ticket_master_id': event['id*'],
             'name': event['name'],
             'location': event['_embedded']['venues'][0]['name'],
             'time': event['dates']['start']['localTime'],
