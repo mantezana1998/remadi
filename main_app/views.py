@@ -25,6 +25,7 @@ def dates_lists(request):
   return render(request, 'dates/dates_list.html', {'events' : events})
 
 
+
 @login_required
 def dates_detail(request, date_id):
   date = Date.objects.get(id=date_id)
