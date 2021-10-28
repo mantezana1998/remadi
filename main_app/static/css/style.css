@@ -6,6 +6,9 @@ body{
     flex-direction: column;
     font-family: 'Comfortaa', cursive;
 }
+.collection {
+    color: black !important;
+}
 
 nav {
     background-color:black; 
