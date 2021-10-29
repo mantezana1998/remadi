@@ -65,10 +65,8 @@ hr {
     background-color: whitesmoke !important;
 }
 
-table {
-    border: .5px solid lightgrey !important;
-    padding: 0;
-}
+tr {
+    border: .5px solid grey !important;
 
 footer.page-footer {
     padding-top: 0;
