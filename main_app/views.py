@@ -7,9 +7,10 @@ from django.views.generic.edit import DeleteView
 from django.contrib.auth.decorators import login_required
 from .apiaction import ticket_master_events, single_event
 
-class DateDelete(DeleteView):
-  model = MyDates
-  success_url = '/categories/'
+def date_delete(request, date_id):
+  print(date_id)
+  ## here delete the date_id
+  return render(request, 'dates/my_dates.html')
 
 def home(request):
   return render(request, 'home.html')
@@ -38,6 +39,7 @@ def my_dates(request):
   })
 
 def dates_lists(request):
+  print(request)
   events = (ticket_master_events())
   dates = Date.objects.filter(user=request.user)
   print(request.user, events)
@@ -49,7 +51,7 @@ def dates_detail(request, date_id):
   return render(request, 'dates/detail.html', {
     'date': date
     ['_embedded']['events']
-  })  
+  })
 
 @login_required
 def assoc_dates(request, user_id, date_id):

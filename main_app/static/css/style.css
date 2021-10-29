@@ -71,8 +71,7 @@ hr {
 }
 
 tr {
-    border: .25px solid lightgrey !important;
-
+    border: .5px solid grey !important;
 }
 
 footer.page-footer {
