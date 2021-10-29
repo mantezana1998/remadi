@@ -8,8 +8,6 @@ from django.contrib.auth.decorators import login_required
 from .apiaction import ticket_master_events, single_event
 
 def date_delete(request, date_id):
-  print(date_id)
-  ## here delete the date_id
   return render(request, 'dates/my_dates.html')
 
 def home(request):
