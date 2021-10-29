@@ -3,9 +3,7 @@
 {% block content  %}
 <h1>Category Date</h1>
   {% for event in events %}
-    {{event.name}} 
-    <form action="{% url 'my_dates' %}" method="post">
-  {% csrf_token %}
+    {{event.name}}  
     <table class="bordered">
       <thead>
         <tr>
@@ -21,7 +19,11 @@
           <td>{{event.time}}</td>
           <td>{{event.dates}}</td>
           <td>{{event.price}}</td>
-          <td><a href=""><input type="submit" class="btn-small waves-effect waves-light blue" value="Add To My Dates List"></a></td>
+          <td>
+            <form action="{% url 'my_dates' %}?id={{event.ticket_master_id}}" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn-small waves-effect waves-light blue" value="Add To My Dates List">
+            </form></td>
         </tr>
       </tbody>
       </table>
