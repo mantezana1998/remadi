@@ -43,7 +43,7 @@ def dates_lists(request):
   print(request)
   events = (ticket_master_events())
   dates = Date.objects.filter(user=request.user)
-  print(request.user, events)
+  print(request.user)
   return render(request, 'dates/dates_list.html', {'events' : events})
 
 @login_required
