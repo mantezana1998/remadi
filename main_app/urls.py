@@ -10,5 +10,5 @@ urlpatterns = [
       path('categories/dates/', views.dates_lists, name='lists'),
       path('categories/dates/<int:date_id>/', views.dates_detail, name='detail'),
       path('categories/dates/<int:date_id>/my_dates/', views.assoc_dates, name='assoc_dates'),
-      path('categories/dates/<int:date_id>/my_dates/delete/', views.DateDelete.as_view(), name='dates_delete'),
+      path('categories/dates/<int:date_id>/delete', views.date_delete, name='dates_delete'),
 ]
