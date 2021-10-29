@@ -3,8 +3,13 @@ from django.shortcuts import render, redirect
 from .models import Date, MyDates
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import DeleteView
 from django.contrib.auth.decorators import login_required
 from .apiaction import ticket_master_events, single_event
+
+class DateDelete(DeleteView):
+  model = MyDates
+  success_url = '/categories/'
 
 def home(request):
   return render(request, 'home.html')
@@ -41,9 +46,6 @@ def dates_lists(request):
 @login_required
 def dates_detail(request, date_id):
   date = Date.objects.get(id=date_id)
-  # print(request, '<-this is my request')
-  # print(date_id, '<- this is my date')
-  # print('_embedded', 'events', '<- THIS IS OUR EVENTS')
   return render(request, 'dates/detail.html', {
     'date': date
     ['_embedded']['events']
