@@ -8,12 +8,16 @@
   <a class="carousel-item" href="#four!"><img src="https://i.imgur.com/dXJP9cH.jpg"></a>
   <a class="carousel-item" href="#five!"><img src="https://i.imgur.com/l7TjoIH.jpg"></a>
 </div>
-  <h5>The remedy to your date decision woes.</h5>
-  {% if user.is_authenticated %}
-  <a href="{% url 'index' %}"><input type="submit" class="btn" value="Let's Choose A Date!"></a>   
-  {% else %}
-  <a href="{% url 'signup' %}"><input type="submit" class="btn" value="Let's Choose A Date!"></a>
-  {% endif %}
+<h5>The remedy to your date decision woes.</h5>
+<div class="row">
+  <div class="center-align col 6">
+    {% if user.is_authenticated %}
+    <a href="{% url 'index' %}"><input type="submit" value="Let's Choose A Date!"></a>   
+    {% else %}
+    <a href="{% url 'signup' %}"><input type="submit" value="Let's Choose A Date!"></a>
+    {% endif %}
+  </div>
+</div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.carousel');
