@@ -11,6 +11,24 @@ h5 {
     text-align: center;
 }
 
+.center-align {
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgb(178, 198, 45);
+    color: white;
+    font-size: 24px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 1px;
+    text-align: center;
+    transition-duration: 0.3s
+}
+
 .section {
     display: grid;
     background-color: black !important;
@@ -21,10 +39,14 @@ nav {
     background-color:black; 
 }
 
-.btn {
+input.btn {
     background-color: rgb(178, 198, 45);
-    display: center;
-    margin-right: 50%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 60%;
+    left: 45%;
+
 }
 
 main {
