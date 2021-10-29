@@ -1,0 +1,1 @@
+web: gunicorn remadi_project.wsgi
