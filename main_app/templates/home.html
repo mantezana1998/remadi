@@ -10,9 +10,9 @@
 </div>
   <h5>The remedy to your date decision woes.</h5>
   {% if user.is_authenticated %}
-  <a href="{% url 'index' %}"><input type="submit" class="btn" value="Let's Choose A Date!"></a>   
+  <a href="{% url 'index' %}"><input class="btn" type="submit" value="Let's Choose A Date!"></a>   
   {% else %}
-  <a href="{% url 'signup' %}"><input type="submit" class="btn" value="Let's Choose A Date!"></a>
+  <a href="{% url 'signup' %}"><input class="btn" type="submit" value="Let's Choose A Date!"></a>
   {% endif %}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
