@@ -3,27 +3,39 @@
 {% block content %}
   <h1>My Dates</h1>
   <div class="collection">
-    <!-- <div class="collection-item avatar"> -->
       <h4 class="date-list">Date Ideas</h4> 
       {% if all_dates.count %}
       {% for alldates in all_dates.all %}
-      <span class="title">Date</span>
-        <p>Location: {{alldates.location}}</p>
-        <p>Time: {{alldates.time}}</p>
-        <p>Dates: {{alldate.dates}}</p>
-        <p>Price: {{alldates.price}}</p>  
-        <div class="card-action">
+      <table class="bordered">
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Time</th>
+            <th>Dates</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{alldates.location}}</td>
+            <td>{{alldates.time}}</td>
+            <td>{{alldates.dates}}</td>
+            <td>{{alldates.price}}</td>
+            <td><div class="card-action">
           <form action="" method="DELETE">
             {% csrf_token %}
             <input type="submit" value="DELETE" class="btn">
             <a href=""></a>
           </form>
-        </div>
+        </div></td>
+          </tr>
+        </tbody>
+        </table>
+
       {% endfor %}
       {% else %}
       <br>  
       <h4 class="date-list">No Dates Added Yet!</h4>
       {% endif %}
-<!-- Add for loop to list out all the dates!!!! -->
-</div>
 {% endblock %}
+
