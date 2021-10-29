@@ -62,11 +62,11 @@ main {
 }
 
 hr {
-    background-color: whitesmoke !important;;
+    background-color: whitesmoke !important;
 }
 
-table {
-    border: 1px white;
+tr {
+    border: .5px solid grey !important;
     padding: 0;
 }
 
