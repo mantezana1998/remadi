@@ -7,9 +7,10 @@ from django.views.generic.edit import DeleteView
 from django.contrib.auth.decorators import login_required
 from .apiaction import ticket_master_events, single_event
 
-class DateDelete(DeleteView):
-  model = MyDates
-  success_url = '/categories/'
+def date_delete(request, date_id):
+  b = Date.objects.get(pk=date_id)
+  b.delete()
+  return redirect('my_dates')
 
 def home(request):
   return render(request, 'home.html')
@@ -22,15 +23,16 @@ def categories_dates_index(request):
   return render(request, 'dates/index.html')
 
 def my_dates(request):
-  ticketmaster_id = request.build_absolute_uri().split('=')[-1]
-  event = single_event(ticketmaster_id)
   user = User.objects.get(username=request.user)
-  print(event, '<------event')
-  name = event['name']
-  location = event['location']
-  time = event['time']
-  dates = event['dates']
-  Date.objects.create(name=name, location=location, time=time, dates=dates, user_id=user.id)
+  if '=' in request.build_absolute_uri():
+    ticketmaster_id = request.build_absolute_uri().split('=')[-1]
+    event = single_event(ticketmaster_id)
+    print(event, '<------event')
+    name = event['name']
+    location = event['location']
+    time = event['time']
+    dates = event['dates']
+    Date.objects.create(name=name, location=location, time=time, dates=dates, user_id=user.id)
   all_dates = Date.objects.filter(user=user)
   print(all_dates, '<------all dates!')
   return render(request, 'dates/my_dates.html', {
@@ -38,6 +40,7 @@ def my_dates(request):
   })
 
 def dates_lists(request):
+  print(request)
   events = (ticket_master_events())
   dates = Date.objects.filter(user=request.user)
   print(request.user)
@@ -49,7 +52,7 @@ def dates_detail(request, date_id):
   return render(request, 'dates/detail.html', {
     'date': date
     ['_embedded']['events']
-  })  
+  })
 
 @login_required
 def assoc_dates(request, user_id, date_id):
