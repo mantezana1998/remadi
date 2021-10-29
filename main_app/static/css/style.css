@@ -1,11 +1,16 @@
 body{
-    background-color: black;
+    background-color: black !important;
     color:white;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     font-family: 'Comfortaa', cursive;
 }
+
+h5 {
+    text-align: center;
+}
+
 .section {
     display: grid;
     background-color: black !important;
@@ -18,8 +23,8 @@ nav {
 
 .btn {
     background-color: rgb(178, 198, 45);
-    text-align: center;
-    align-content: center;
+    display: center;
+    margin-right: 50%;
 }
 
 main {
@@ -66,7 +71,9 @@ hr {
 }
 
 tr {
-    border: .5px solid grey !important;
+    border: .25px solid lightgrey !important;
+
+}
 
 footer.page-footer {
     padding-top: 0;

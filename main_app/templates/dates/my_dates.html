@@ -21,15 +21,14 @@
             <td>{{alldates.dates}}</td>
             <td>{{alldates.price}}</td>
             <td><div class="card-action">
-          <form action="" method="POST">
+            <a href="{% url 'dates_delete' alldates.id %}">Delete</a>
             {% csrf_token %}
             <input type="submit" value="DELETE" class="btn">
-            <a href="{% url 'dates_delete' mydate.id %}">Delete</a>
           </form>
-        </div></td>
           </tr>
         </tbody>
-        </table>
+      </table>
+    </div>
 
       {% endfor %}
       {% else %}
