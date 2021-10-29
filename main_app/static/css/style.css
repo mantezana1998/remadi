@@ -62,13 +62,11 @@ main {
 }
 
 hr {
-    background-color: whitesmoke !important;;
+    background-color: whitesmoke !important;
 }
 
-table {
-    border: 1px white;
-    padding: 0;
-}
+tr {
+    border: .5px solid grey !important;
 
 footer.page-footer {
     padding-top: 0;
