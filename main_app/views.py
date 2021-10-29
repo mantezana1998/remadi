@@ -12,6 +12,7 @@ def date_delete(request, date_id):
   b.delete()
   return redirect('my_dates')
 
+
 def home(request):
   return render(request, 'home.html')
 
@@ -26,6 +27,7 @@ def my_dates(request):
   user = User.objects.get(username=request.user)
   if '=' in request.build_absolute_uri():
     ticketmaster_id = request.build_absolute_uri().split('=')[-1]
+    print(ticketmaster_id)
     event = single_event(ticketmaster_id)
     print(event, '<------event')
     name = event['name']
@@ -43,7 +45,7 @@ def dates_lists(request):
   print(request)
   events = (ticket_master_events())
   dates = Date.objects.filter(user=request.user)
-  print(request.user)
+  print(request.user, events)
   return render(request, 'dates/dates_list.html', {'events' : events})
 
 @login_required
@@ -52,7 +54,7 @@ def dates_detail(request, date_id):
   return render(request, 'dates/detail.html', {
     'date': date
     ['_embedded']['events']
-  })
+  })  
 
 @login_required
 def assoc_dates(request, user_id, date_id):
