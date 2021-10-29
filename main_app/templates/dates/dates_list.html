@@ -28,7 +28,7 @@
       </tbody>
       </table>
   {% endfor %}
-<<<<<<< HEAD
+
 
   <div class="collection">
     <div class="collection-item avatar">
@@ -40,17 +40,15 @@
               <p>Time: {{event.time}}</p>
               <p>Dates: {{event.dates}}</p>
               <!-- <p>Price: {{event.price}}</p>    -->
-<<<<<<< HEAD
+
               <form action="{% url 'my_dates'? id=event.ticket_master %}" method="post">
-=======
+
               <form action="{% url 'my_dates' %}?id={{event.ticket_master_id}}" method="post">
->>>>>>> 6f746b41f03937e8429bda3498c7591c531d2075
+
                 {% csrf_token %}
                 <input type="submit" class="btn-small waves-effect waves-light blue" value="Add To My Dates List">
               </form>       
 		</div>
       {% endfor %}
 	</div>
-=======
->>>>>>> 8927612b6463447ac3d0c654696ca1f024057929
 {% endblock  %}
