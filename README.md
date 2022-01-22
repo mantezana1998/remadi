@@ -28,8 +28,6 @@
 
 ## :computer: Technologies Used
 
-## :computer: Technologies Used
-
 ![HTML5](https://img.shields.io/badge/-HTML5-333?style=flat&logo=html5)
 ![CSS3](https://img.shields.io/badge/-CSS-333?style=flat&logo=css3)
 ![Trello](https://img.shields.io/badge/-Trello-333?style=flat&logo=trello) 
