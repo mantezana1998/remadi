@@ -2,8 +2,8 @@
    <h1>Remadi</h1>
    <h3>https://remadi.herokuapp.com/</h3>
    <h5>Reggie | Documenter | API Manager</h5>
-   <h5>DiAnne | Database Manager | Github Manager</h5>
-   <h5>Max | Designer | SRCUM Master</h5>
+   <h5>Max | Database Manager | Github Manager</h5>
+   <h5>DiAnne | Designer | SRCUM Master</h5>
    
    <a href="https://mantezana1998.github.io/portfolio/" target="_blank">
       <img src="https://img.shields.io/badge/-Portfolio:_user.github.io-darkgreen?style=flat&logo=medium"/>
